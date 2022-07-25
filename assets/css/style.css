@@ -31,12 +31,10 @@
 }
 
 .dark-theme-variables{
-    --color-background: #181a1e;
-    --color-white: #202528;
-    --color-dark: #edeffd;
-    --color-dark-variant: #a3bdcc;
-    --color-light: rgba(0, 0, 0, 0.4);
-    --box-shadow: 0 2rem 3rem var(--color-light)
+    --color-white: #131316;
+    --color-dark: #ddd;
+    --color-gray-dark: #adacb5;
+    --color-light: #23232a;
 }
 
 *{
@@ -664,52 +662,81 @@ main .recent-transactions .card-details .card{
     main{
         grid-template-columns: 1fr;
     }
-    .container{
-        width: 94%;
-        grid-template-columns: 7rem auto 23rem;
-    }
-
-    aside .logo h2{
+    
+    main aside{
+        position: fixed;
+        top: 0;
+        left: -100%;
+        z-index: 3;
+        background-color: var(--color-white);
+        width: 22rem;
+        height: 100vh;
+        box-shadow: 2rem 0 2rem var(--color-primary-light);
         display: none;
-    }
-    
-    aside .sidebar h3{
-        display: none;
-    }
-    
-    aside .sidebar a{
-        width: 5.6rem;
-    }
-    
-    aside .sidebar a:last-child{
-        position: relative;
-        margin-top: 1.8rem;
+        animation: showSidebar 300ms ease forwards;
     }
 
-    main .insights{
-        grid-template-columns: 1fr;
-        gap: 0;
+    @keyframes showSidebar {
+        to{
+            left: 0;
+        }
     }
 
-    main .recent-orders{
-        width: 94%;
+    main aside button#close-btn{
+        display: inline-block;
+        width: 3rem;
+        height: 3rem;
         position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        margin: 2rem 0 0 8.8rem;
+        top: 1rem;
+        right: 1rem;
+        z-index: 4;
+        background-color: transparent;
+        color: var(--color-dark);
     }
 
-    main .recent-orders table{
-        width: 83vw;
+    button:hover{
+        cursor: pointer;
     }
 
-    main table thead tr th:last-child,
-    main table thead tr th:first-child{
+    main aside .sidebar{
+        margin-top: 4rem;
+    }
+
+    main aside .update{
         display: none;
     }
 
-    main table thead tr td:last-child,
-    main table thead tr td:first-child{
+    main section.middle .cards{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    main canvas{
+        margin: 3rem 0 1rem;
+    }
+
+    main section.rigth .recent-transactions{
+        margin-top: 3rem;
+    }
+}
+
+@media screen and (max-width: 600px){
+    nav .profile-area{
+        gap: 2.6rem;
+    }
+
+    nav .profile h5,
+    nav .profile span{
         display: none;
+    }
+
+    main section.middle .cards{
+        grid-template-columns: 1fr;
+    }
+
+    main section.middle .fast-payment{
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 3rem;
+        gap: 1.4rem;
     }
 }
