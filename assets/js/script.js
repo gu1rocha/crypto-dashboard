@@ -1,5 +1,9 @@
 const themeToggler = document.querySelector(".theme-btn");
-constchart = document.querySelector("#chart").getContext('2d');
+const chart = document.querySelector("#chart").getContext('2d');
+
+const menuBtn = document.querySelector('#menu-btn');
+const closeBtn = document.querySelector('#close-btn');
+const sidebar = document.querySelector('aside');
 
 themeToggler.addEventListener('click', () => {
     document.body.classList.toggle('dark-theme-variables');
@@ -38,3 +42,10 @@ new Chart(chart, {
     }
 })
 
+menuBtn.addEventListener('click', () => {
+    sidebar.style.display = 'block';
+});
+
+closeBtn.addEventListener('click', () => {
+    sidebar.style.display = 'none';
+})
